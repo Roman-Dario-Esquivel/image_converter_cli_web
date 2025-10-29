@@ -16,6 +16,9 @@ def main():
     parser.add_argument("--watermark", help="Ruta a imagen PNG/SVG como marca de agua")
     parser.add_argument("--log", help="Archivo de log")
     parser.add_argument("--csv", help="Carpeta o ruta de reporte CSV")
+    parser.add_argument("--dry-run", action="store_true", help="Simula la conversión sin guardar archivos")
+    parser.add_argument("--no-console", action="store_true", help="No muestra el reporte en consola")
+
 
     args = parser.parse_args()
     formats = [f.strip() for f in args.format.split(",")]
@@ -57,7 +60,9 @@ def main():
                 if logger: log_status(logger, {"name": file, "error": str(e)})
                 if report: report.add_error(file, str(e))
 
-    report.show()
+    if not args.no_console:
+        report.show()
+
     report.save()
 
 if __name__ == "__main__":
