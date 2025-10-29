@@ -59,3 +59,6 @@ def main():
 
     report.show()
     report.save()
+
+if __name__ == "__main__":
+    main()
