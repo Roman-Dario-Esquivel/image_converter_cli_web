@@ -15,14 +15,28 @@ def main():
     parser.add_argument("--quality", type=int, default=80, help="Calidad de compresión (0-100)")
     parser.add_argument("--watermark", help="Ruta a imagen PNG/SVG como marca de agua")
     parser.add_argument("--log", help="Archivo de log")
-    parser.add_argument("--csv", help="Archivo de reporte CSV")
+    parser.add_argument("--csv", help="Carpeta o ruta de reporte CSV")
 
     args = parser.parse_args()
     formats = [f.strip() for f in args.format.split(",")]
     os.makedirs(args.output, exist_ok=True)
 
-    logger = setup_logger(args.log) if args.log else None
-    report = Report(args.csv) if args.csv else None
+    # Crear carpeta de log si se indica
+    if args.log:
+        os.makedirs(os.path.dirname(args.log), exist_ok=True)
+        logger = setup_logger(args.log)
+    else:
+        logger = None
+
+    # Crear carpeta de reporte y generar nombre con fecha
+    from datetime import datetime
+    if args.csv:
+        os.makedirs(os.path.dirname(args.csv), exist_ok=True) if not os.path.isdir(args.csv) else os.makedirs(args.csv, exist_ok=True)
+        fecha = datetime.now().strftime("%Y%m%d_%H%M")
+        csv_path = os.path.join(args.csv, f"reporte_{fecha}.csv") if os.path.isdir(args.csv) else args.csv
+        report = Report(csv_path)
+    else:
+        report = Report()
 
     for file in tqdm(os.listdir(args.input)):
         if file.lower().endswith((".jpg", ".jpeg", ".png")):
@@ -43,7 +57,5 @@ def main():
                 if logger: log_status(logger, {"name": file, "error": str(e)})
                 if report: report.add_error(file, str(e))
 
-    if report: report.save()
-
-if __name__ == "__main__":
-    main()
+    report.show()
+    report.save()

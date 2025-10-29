@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV=/home/roman/programasPersonales/image_converter_cli/venv
+VIRTUAL_ENV=/home/roman/programasPersonales/convertidor/image_converter_cli/venv
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

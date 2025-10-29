@@ -1,4 +1,4 @@
-#!/home/roman/programasPersonales/image_converter_cli/venv/bin/python3
+#!/home/roman/programasPersonales/convertidor/image_converter_cli/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
