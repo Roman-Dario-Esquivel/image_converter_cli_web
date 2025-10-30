@@ -53,6 +53,15 @@ Necesitas tener **Python 3** instalado. / You need to have **Python 3** installe
 ```bash
 python3 convert_images.py --input <input_folder> --output <output_folder> --format <webp|avif|webp,avif> [options]
 ```
+| Caso de Uso / Use Case                                                                        | Comando de Ejemplo / Example Command                                                                                   |
+|-----------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
+| (ES) Conversión simple a WebP / (EN) Simple WebP Conversion                                   | `python3 convert_images.py --input ./originales --output ./convertidas/webp --format webp`                             |
+| (ES) A WebP y AVIF con calidad 90 / (EN) To WebP and AVIF with quality 90                     | `python3 convert_images.py --input ./originales --output ./convertidas/alta_calidad --format webp,avif --quality 90`   |
+| (ES) Redimensionado (1024x768) con marca de agua / (EN) Resizing (1024x768) with Watermark    | `python3 convert_images.py --input ./originales --output ./convertidas/redimensionadas --format webp,avif --width 1024 --height 768 --watermark ./marca.svg` |
+|                                                                                               |
+| (ES) Simulación (Dry-Run) / (EN) Simulation (Dry-Run)                | `python3 convert_images.py --input ./originales --output ./convertidas/simulacion --format webp,avif --dry-run`        |
+| (ES) Reporte CSV y Log completo / (EN) Complete CSV Report and Log  | `python3 convert_images.py --input ./originales --output ./convertidas/completo --format webp,avif --log ./logs/conversion.log --csv ./reportes/` |
+
 
 Caso de Uso / Use Case,Comando de Ejemplo / Example Command
 (ES) Conversión simple a WebP / (EN) Simple WebP Conversion,python3 convert_images.py --input ./originales --output ./convertidas/webp --format webp
