@@ -63,25 +63,20 @@ python3 convert_images.py --input <input_folder> --output <output_folder> --form
 | (ES) Reporte CSV y Log completo / (EN) Complete CSV Report and Log  | `python3 convert_images.py --input ./originales --output ./convertidas/completo --format webp,avif --log ./logs/conversion.log --csv ./reportes/` |
 
 
-Caso de Uso / Use Case,Comando de Ejemplo / Example Command
-(ES) Conversión simple a WebP / (EN) Simple WebP Conversion,python3 convert_images.py --input ./originales --output ./convertidas/webp --format webp
-(ES) A WebP y AVIF con calidad 90 / (EN) To WebP and AVIF with quality 90,"python3 convert_images.py --input ./originales --output ./convertidas/alta_calidad --format webp,avif --quality 90"
-(ES) Redimensionado (1024x768) con marca de agua / (EN) Resizing (1024x768) with Watermark,"python3 convert_images.py --input ./originales --output ./convertidas/redimensionadas --format webp,avif --width 1024 --height 768 --watermark ./marca.svg"
-(ES) Simulación (Dry-Run) / (EN) Simulation (Dry-Run),"python3 convert_images.py --input ./originales --output ./convertidas/simulacion --format webp,avif --dry-run"
-(ES) Reporte CSV y Log completo / (EN) Complete CSV Report and Log,"python3 convert_images.py --input ./originales --output ./convertidas/completo --format webp,avif --log ./logs/conversion.log --csv ./reportes/"
+| Parámetro / Parameter | (ES) Descripción                                      | (EN) Description                                      | Obligatorio / Required |
+|-----------------------|------------------------------------------------------|-------------------------------------------------------|------------------------|
+| `--input`             | Carpeta con imágenes originales.                     | Folder with original images.                          | ✅                     |
+| `--output`            | Carpeta donde se guardarán las convertidas.          | Folder where converted files will be saved.           | ✅                     |
+| `--format`            | Formatos de salida: webp, avif o ambos.              | Output formats: webp, avif, or both.                  | ✅                     |
+| `--width`             | Ancho deseado (opcional).                            | Desired width (optional).                             | ❌                     |
+| `--height`            | Alto deseado (opcional).                             | Desired height (optional).                            | ❌                     |
+| `--quality`           | Calidad de compresión (0–100, por defecto 80).       | Compression quality (0–100, default 80).              | ❌                     |
+| `--watermark`         | Ruta a imagen PNG o SVG como marca de agua.          | Path to PNG or SVG image for watermarking.            | ❌                     |
+| `--log`               | Ruta al archivo de log.                              | Path to the log file.                                 | ❌                     |
+| `--csv`               | Ruta o carpeta para guardar el reporte CSV.          | Path or folder to save the CSV report.                | ❌                     |
+| `--dry-run`           | Simula la conversión sin guardar archivos.           | Simulates conversion without saving files.            | ❌                     |
+| `--no-console`        | Oculta el resumen en consola.                        | Hides the console summary.                            | ❌                     |
 
-Parámetro / Parameter,(ES) Descripción,(EN) Description,Obligatorio / Required
---input,Carpeta con imágenes originales.,Folder with original images.,✅
---output,Carpeta donde se guardarán las convertidas.,Folder where converted files will be saved.,✅
---format,"Formatos de salida: webp, avif o ambos.","Output formats: webp, avif, or both.",✅
---width,Ancho deseado (opcional).,Desired width (optional).,❌
---height,Alto deseado (opcional).,Desired height (optional).,❌
---quality,"Calidad de compresión (0–100, por defecto 80).","Compression quality (0–100, default 80).",❌
---watermark,Ruta a imagen PNG o SVG como marca de agua.,Path to PNG or SVG image for watermarking.,❌
---log,Ruta al archivo de log.,Path to the log file.,❌
---csv,Ruta o carpeta para guardar el reporte CSV.,Path or folder to save the CSV report.,❌
---dry-run,Simula la conversión sin guardar archivos.,Simulates conversion without saving files.,❌
---no-console,Oculta el resumen en consola.,Hides the console summary.,❌
 
 ✒️ Autor
 [Roman Darío Esquivel](https://github.com/Roman-Dario-Esquivel)  – Desarrollador principal del proyecto
